@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "9D+/LY4UWnU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
