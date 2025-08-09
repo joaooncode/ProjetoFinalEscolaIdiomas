@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Api.EscolaIdiomas.Domain.Models.Alunos
 {
-    public interface Aluno
+    public class Aluno
     {
         public long Id { get; set; }
 

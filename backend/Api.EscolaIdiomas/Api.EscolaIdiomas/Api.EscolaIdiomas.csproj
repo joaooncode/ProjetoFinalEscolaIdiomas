@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Api.EscolaIdiomas.Domain\Api.EscolaIdiomas.Domain.csproj" />
+    <ProjectReference Include="..\Api.EscolaIdiomas.Infra.Data\Api.EscolaIdiomas.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

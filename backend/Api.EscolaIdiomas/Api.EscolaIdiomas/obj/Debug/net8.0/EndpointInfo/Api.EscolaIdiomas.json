@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/alunos": {
+      "get": {
+        "tags": [
+          "Alunos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [

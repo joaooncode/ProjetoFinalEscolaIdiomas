@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "Api.EscolaIdiomas.Controllers.Alunos.AlunosController",
+    "Method": "Get",
+    "RelativePath": "alunos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Api.EscolaIdiomas.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
