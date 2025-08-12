@@ -48,19 +48,18 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Alunos
                           email,
                           telefone,
                           data_matricula,
-                          ativo,
+                          ativo
                         )
-                        OUTPUT INSERTED.id
                         VALUES
                         (
                             @Nome,
                             @Sobrenome,
-                            @DataDeNascimneto,
+                            @DataDeNascimento,
                             @Email,
                             @Telefone,
                             @DataMatricula,
                             @Ativo
-                        )", aluno);
+                        ) RETURNING id;", aluno);
         }
     }
 }
