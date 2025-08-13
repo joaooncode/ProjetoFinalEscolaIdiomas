@@ -16,18 +16,20 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Alunos
 
         public async Task<Aluno> GetAlunoById(long id)
         {
+#pragma warning disable CS8603 // Possível retorno de referência nula.
             return await _context.CreateConnection()
                 .QueryFirstOrDefaultAsync<Aluno>(@"
                     SELECT id,
                             nome,
                             sobrenome,
-                            data_de_nascimento,
+                            data_de_nascimento AS DataDeNascimento,
                             email,
                             telefone,
-                            data_matricula,
+                            data_matricula AS DataMatricula,
                             ativo
                     FROM alunos WHERE id = @id
                 ", new {id = id});
+#pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
         public async Task<IEnumerable<Aluno>> GetAlunos()

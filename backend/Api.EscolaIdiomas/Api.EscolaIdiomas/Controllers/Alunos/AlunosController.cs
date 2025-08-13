@@ -67,5 +67,27 @@ namespace Api.EscolaIdiomas.Controllers.Alunos
             }
         }
 
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> UpdateAluno([FromRoute] long id, [FromBody] UpdateAlunoRequest updateAlunoRequest)
+        {
+            try
+            {
+                await _alunosService.UpdateAluno(id, updateAlunoRequest);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                var error = new Errors
+                {
+                    Mensagem = ex.Message,
+                    Status = "400",
+                };
+
+                return BadRequest(error);
+                
+            }
+        }
+
     }
 }
