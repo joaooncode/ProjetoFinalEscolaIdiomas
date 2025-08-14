@@ -88,7 +88,7 @@ namespace Api.EscolaIdiomas.Controllers.Alunos
                 
             }
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAluno([FromRoute] long id)
         {
             try

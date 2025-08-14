@@ -16,7 +16,7 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Alunos
 
         public async Task DeleteAluno(long id)
         {
-            await _context.CreateConnection().QueryFirstOrDefaultAsync(@"DELETE * FROM alunos WHERE id = @Id", new { Id = id });
+            await _context.CreateConnection().QueryFirstOrDefaultAsync(@"DELETE  FROM alunos WHERE id = @Id", new { Id = id });
         }
 
         public async Task<Aluno> GetAlunoById(long id)
