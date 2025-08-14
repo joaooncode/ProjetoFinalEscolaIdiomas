@@ -14,6 +14,11 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Alunos
             _context = context;
         }
 
+        public async Task DeleteAluno(long id)
+        {
+            await _context.CreateConnection().QueryFirstOrDefaultAsync(@"DELETE * FROM alunos WHERE id = @Id", new { Id = id });
+        }
+
         public async Task<Aluno> GetAlunoById(long id)
         {
 #pragma warning disable CS8603 // Possível retorno de referência nula.
@@ -62,6 +67,21 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Alunos
                             @DataMatricula,
                             @Ativo
                         ) RETURNING id;", aluno);
+        }
+
+        public async Task UpdateAluno(Aluno aluno)
+        {
+            await _context.CreateConnection()
+                .QueryFirstOrDefaultAsync<Aluno>(
+                    @"UPDATE alunos SET
+                      telefone = @Telefone,   
+                      email = @Email
+                       WHERE id = @Id", new
+                    {
+                        Telefone = aluno.Telefone,
+                        Email  = aluno.Email,
+                        Id = aluno.Id
+                    });
         }
     }
 }

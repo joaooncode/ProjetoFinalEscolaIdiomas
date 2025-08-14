@@ -88,6 +88,25 @@ namespace Api.EscolaIdiomas.Controllers.Alunos
                 
             }
         }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAluno([FromRoute] long id)
+        {
+            try
+            {
+                await _alunosService.DeleteAluno(id);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                var error = new Errors
+                {
+                    Mensagem = ex.Message,
+                    Status = "400"
+                };
+                return BadRequest(error);
+            }
+        }
 
     }
 }

@@ -9,5 +9,8 @@ namespace Api.EscolaIdiomas.Domain.Interfaces.Alunos
         Task<Aluno> GetAlunoById(long id);
 
         Task<long> InsertAluno(Aluno aluno);
+
+        Task UpdateAluno(Aluno aluno);
+        Task DeleteAluno(long id);
     }
 }
