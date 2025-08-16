@@ -79,6 +79,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Api.EscolaIdiomas.Controllers.Cursos.CursoController",
+    "Method": "GetCursos",
+    "RelativePath": "cursos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Api.EscolaIdiomas.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
