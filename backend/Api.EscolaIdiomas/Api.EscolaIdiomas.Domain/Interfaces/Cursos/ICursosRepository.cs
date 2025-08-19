@@ -5,7 +5,7 @@ namespace Api.EscolaIdiomas.Domain.Interfaces.Cursos
 {
     public interface ICursosRepository
     {
-        Task<GetCursoByIdResponse> GetCursoById(long id);
+        Task<Curso> GetCursoById(long id);
         Task<IEnumerable<Curso>> GetCursos();
     }
 }

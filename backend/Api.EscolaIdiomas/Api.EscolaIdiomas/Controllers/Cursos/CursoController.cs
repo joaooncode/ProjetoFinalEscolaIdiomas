@@ -9,17 +9,17 @@ namespace Api.EscolaIdiomas.Controllers.Cursos
     [Route("cursos")]
     public class CursoController : Controller
     {
-        private readonly ICursosService _cursosService;
+        private readonly ICursosRepository _cursosRepository;
 
-        public CursoController(ICursosService cursosServices)
+        public CursoController(ICursosRepository cursosRepository)
         {
-            _cursosService = cursosServices;
+            _cursosRepository = cursosRepository;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCursos()
         {
-            var cursosResponse = await _cursosService.GetCursos();
+            var cursosResponse = await _cursosRepository.GetCursos();
 
             if (cursosResponse == null)
             {
@@ -31,9 +31,9 @@ namespace Api.EscolaIdiomas.Controllers.Cursos
 
         [HttpGet("{id}")]
 
-        public async Task<IActionResult> GetCursoById()
+        public async Task<IActionResult> GetCursoById(long id)
         {
-            var curso = await _cursosService.GetCursoById();
+            var curso = await _cursosRepository.GetCursoById(id);
 
             if (curso == null)
             {

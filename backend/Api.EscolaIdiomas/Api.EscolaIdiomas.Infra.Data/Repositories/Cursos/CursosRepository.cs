@@ -15,9 +15,11 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Cursos
             _context = context;
         }
 
-        public async Task<GetCursoByIdResponse> GetCursoById(long id)
+        public async Task<Curso> GetCursoById( long id)
         {
-            return await _context.CreateConnection().QueryFirstOrDefaultAsync()
+            return await _context.CreateConnection().QueryFirstOrDefaultAsync(
+                @"SELECT * FROM cursos WHERE id = @id", new { id = id }
+);
         }
 
         public async Task<IEnumerable<Curso>> GetCursos()
