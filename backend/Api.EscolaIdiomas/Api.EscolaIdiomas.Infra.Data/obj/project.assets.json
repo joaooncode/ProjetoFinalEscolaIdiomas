@@ -867,23 +867,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\": {},
+    "C:\\Users\\ALEXDOSSANTOS\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
+      "projectUniqueName": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
       "projectName": "Api.EscolaIdiomas.Infra.Data",
-      "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
-      "packagesPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\obj\\",
+      "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
+      "packagesPath": "C:\\Users\\ALEXDOSSANTOS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\JOAOVITORRODRIGUESDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ALEXDOSSANTOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -898,8 +898,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
-              "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj"
+            "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
+              "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj"
             }
           }
         }

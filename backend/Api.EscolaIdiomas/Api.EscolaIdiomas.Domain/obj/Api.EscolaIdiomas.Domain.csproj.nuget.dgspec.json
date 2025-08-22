@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {}
+    "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
+    "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
         "projectName": "Api.EscolaIdiomas.Domain",
-        "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
-        "packagesPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\Módulo D\\ProjetoCSharp\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\obj\\",
+        "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
+        "packagesPath": "C:\\Users\\ALEXDOSSANTOS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JOAOVITORRODRIGUESDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ALEXDOSSANTOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
