@@ -15,12 +15,25 @@ namespace Api.EscolaIdiomas.Domain.Services.Alunos
             _alunosRepository = alunosRepository;
         }
 
+        public async Task DeleteAluno(long id)
+        {
+            var aluno = await _alunosRepository.GetAlunoById(id);
+
+            if (aluno == null)
+            {
+                throw new Exception($"Nenhum aluno encontrado com id: {id}");
+            }
+
+
+            await _alunosRepository.DeleteAluno(id);
+        }
+
         public async Task<GetAlunoByIdResponse> GetAlunoById(long id)
         {
             var aluno = await _alunosRepository.GetAlunoById(id);
 
             if (aluno == null) return null;
-            
+
 
             return new GetAlunoByIdResponse()
             {
@@ -37,7 +50,7 @@ namespace Api.EscolaIdiomas.Domain.Services.Alunos
 
         public async Task<IEnumerable<GetAlunosResponse>> GetAlunos()
         {
-           var alunos = await   _alunosRepository.GetAlunos();
+            var alunos = await _alunosRepository.GetAlunos();
 
             if (alunos == null)
             {
@@ -78,6 +91,30 @@ namespace Api.EscolaIdiomas.Domain.Services.Alunos
             {
 
                 throw;
+            }
+        }
+
+        public async Task UpdateAluno(long id, UpdateAlunoRequest request)
+        {
+            try
+            {
+                var aluno = await _alunosRepository.GetAlunoById(id);
+
+                if (aluno == null)
+                {
+                    throw new Exception($"Não foi possivel encontrado um aluno com o id {id}");
+                }
+
+                aluno.Telefone = request.Telefone;
+                aluno.Email = request.Email;
+
+
+                await _alunosRepository.UpdateAluno(aluno);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception($"Erro ao atualizar aluno: {ex}");
             }
         }
     }

@@ -67,6 +67,102 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "Alunos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAlunoRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAlunoRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAlunoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Alunos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cursos": {
+      "get": {
+        "tags": [
+          "Curso"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/cursos/{id}": {
+      "get": {
+        "tags": [
+          "Curso"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/professores": {
@@ -220,6 +316,7 @@
         },
         "additionalProperties": false
       },
+<<<<<<< HEAD
       "InsertProfessoresRequest": {
         "type": "object",
         "properties": {
@@ -232,12 +329,19 @@
             "nullable": true
           },
           "sobrenome": {
+=======
+      "UpdateAlunoRequest": {
+        "type": "object",
+        "properties": {
+          "telefone": {
+>>>>>>> da429d678a52156fa2f274426c4759f8a1f46e9a
             "type": "string",
             "nullable": true
           },
           "email": {
             "type": "string",
             "nullable": true
+<<<<<<< HEAD
           },
           "formacao": {
             "$ref": "#/components/schemas/Formacoes"
@@ -252,6 +356,8 @@
           },
           "ativo": {
             "type": "boolean"
+=======
+>>>>>>> da429d678a52156fa2f274426c4759f8a1f46e9a
           }
         },
         "additionalProperties": false

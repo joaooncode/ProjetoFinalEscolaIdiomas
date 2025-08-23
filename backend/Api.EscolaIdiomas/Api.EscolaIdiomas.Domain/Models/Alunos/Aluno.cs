@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Api.EscolaIdiomas.Domain.Models.Alunos
+﻿namespace Api.EscolaIdiomas.Domain.Models.Alunos
 {
     public class Aluno
     {
