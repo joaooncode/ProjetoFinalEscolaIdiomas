@@ -1,0 +1,32 @@
+﻿# Saída de build
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+# Configurações/arquivos temporários de IDE
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Configurações de build
+Debug/
+Release/
+x64/
+x86/
+[Aa]rtifacts/
+out/
+
+# Testes
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Outros
+*.nupkg
+*.snupkg
+*.cache
