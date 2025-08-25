@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj": {}
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
         "projectName": "Api.EscolaIdiomas.Domain",
-        "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
-        "packagesPath": "C:\\Users\\ALEXDOSSANTOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\obj\\",
+        "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj",
+        "packagesPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ALEXDOSSANTOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JOAOVITORRODRIGUESDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -69,20 +69,20 @@
         }
       }
     },
-    "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj": {
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
+        "projectUniqueName": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
         "projectName": "Api.EscolaIdiomas.Infra.Data",
-        "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
-        "packagesPath": "C:\\Users\\ALEXDOSSANTOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\obj\\",
+        "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ALEXDOSSANTOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JOAOVITORRODRIGUESDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
-                "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj"
+              "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
+                "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj"
               }
             }
           }
@@ -160,20 +160,20 @@
         }
       }
     },
-    "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj": {
+    "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj",
+        "projectUniqueName": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj",
         "projectName": "Api.EscolaIdiomas",
-        "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj",
-        "packagesPath": "C:\\Users\\ALEXDOSSANTOS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\obj\\",
+        "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\Api.EscolaIdiomas.csproj",
+        "packagesPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ALEXDOSSANTOS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JOAOVITORRODRIGUESDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -188,11 +188,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
-                "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj"
+              "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj": {
+                "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Domain\\Api.EscolaIdiomas.Domain.csproj"
               },
-              "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj": {
-                "projectPath": "C:\\Users\\ALEXDOSSANTOS\\Desktop\\ProjeotFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj"
+              "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj": {
+                "projectPath": "C:\\Users\\JOAOVITORRODRIGUESDA\\Desktop\\ProjetoFinalEscolaIdiomas\\backend\\Api.EscolaIdiomas\\Api.EscolaIdiomas.Infra.Data\\Api.EscolaIdiomas.Infra.Data.csproj"
               }
             }
           }

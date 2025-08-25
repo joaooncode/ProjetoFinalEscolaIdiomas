@@ -22,3 +22,15 @@ C:\Users\ALEXDOSSANTOS\Desktop\ProjeotFinalEscolaIdiomas\backend\Api.EscolaIdiom
 C:\Users\ALEXDOSSANTOS\Desktop\ProjeotFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\refint\Api.EscolaIdiomas.Domain.dll
 C:\Users\ALEXDOSSANTOS\Desktop\ProjeotFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.pdb
 C:\Users\ALEXDOSSANTOS\Desktop\ProjeotFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\ref\Api.EscolaIdiomas.Domain.dll
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\bin\Debug\net8.0\Api.EscolaIdiomas.Domain.deps.json
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\bin\Debug\net8.0\Api.EscolaIdiomas.Domain.dll
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\bin\Debug\net8.0\Api.EscolaIdiomas.Domain.pdb
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.AssemblyInfoInputs.cache
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.AssemblyInfo.cs
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.csproj.CoreCompileInputs.cache
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.sourcelink.json
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.dll
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\refint\Api.EscolaIdiomas.Domain.dll
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\Api.EscolaIdiomas.Domain.pdb
+C:\Users\JOAOVITORRODRIGUESDA\Desktop\ProjetoFinalEscolaIdiomas\backend\Api.EscolaIdiomas\Api.EscolaIdiomas.Domain\obj\Debug\net8.0\ref\Api.EscolaIdiomas.Domain.dll

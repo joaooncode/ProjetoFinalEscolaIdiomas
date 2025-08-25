@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Api.EscolaIdiomas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3f8f5de13600c200f3a29f5efb31d50762dd116")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+603dc540b44a57e9c0c699d7304a074ad65c5a78")]
->>>>>>> da429d678a52156fa2f274426c4759f8a1f46e9a
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90fa178556817e86a34498367f52fe20c4c5ccfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Api.EscolaIdiomas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Api.EscolaIdiomas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

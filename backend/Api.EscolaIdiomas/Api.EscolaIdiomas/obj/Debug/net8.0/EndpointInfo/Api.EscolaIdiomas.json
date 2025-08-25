@@ -316,7 +316,6 @@
         },
         "additionalProperties": false
       },
-<<<<<<< HEAD
       "InsertProfessoresRequest": {
         "type": "object",
         "properties": {
@@ -329,19 +328,12 @@
             "nullable": true
           },
           "sobrenome": {
-=======
-      "UpdateAlunoRequest": {
-        "type": "object",
-        "properties": {
-          "telefone": {
->>>>>>> da429d678a52156fa2f274426c4759f8a1f46e9a
             "type": "string",
             "nullable": true
           },
           "email": {
             "type": "string",
             "nullable": true
-<<<<<<< HEAD
           },
           "formacao": {
             "$ref": "#/components/schemas/Formacoes"
@@ -356,8 +348,20 @@
           },
           "ativo": {
             "type": "boolean"
-=======
->>>>>>> da429d678a52156fa2f274426c4759f8a1f46e9a
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateAlunoRequest": {
+        "type": "object",
+        "properties": {
+          "telefone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
