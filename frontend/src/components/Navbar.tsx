@@ -2,6 +2,7 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { ThemeToggle } from './theme'
 import { BookOpen, GraduationCap, Users, Home, School, UserPlus, Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -25,9 +26,11 @@ export function Navbar() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/">
-                    <Home className="mr-2 h-4 w-4" />
-                    Início
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                    <Link to="/">
+                      <Home className="mr-2 h-4 w-4" />
+                      Início
+                    </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
@@ -38,11 +41,15 @@ export function Navbar() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="p-2 w-[180px]">
-                      <NavigationMenuLink href="/alunos" className="block p-2 rounded hover:bg-accent">
-                        Gerenciar Alunos
+                      <NavigationMenuLink asChild>
+                        <Link to="/alunos" className="block p-2 rounded hover:bg-accent">
+                          Gerenciar Alunos
+                        </Link>
                       </NavigationMenuLink>
-                      <NavigationMenuLink href="/alunos/novo" className="block p-2 rounded hover:bg-accent">
-                        Novo Aluno
+                      <NavigationMenuLink asChild>
+                        <Link to="/alunos/novo" className="block p-2 rounded hover:bg-accent">
+                          Novo Aluno
+                        </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -55,11 +62,15 @@ export function Navbar() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="p-2 w-[180px]">
-                      <NavigationMenuLink href="/professores" className="block p-2 rounded hover:bg-accent">
-                        Gerenciar Professores
+                      <NavigationMenuLink asChild>
+                        <Link to="/professores" className="block p-2 rounded hover:bg-accent">
+                          Gerenciar Professores
+                        </Link>
                       </NavigationMenuLink>
-                      <NavigationMenuLink href="/professores/novo" className="block p-2 rounded hover:bg-accent">
-                        Novo Professor
+                      <NavigationMenuLink asChild>
+                        <Link to="/professores/novo" className="block p-2 rounded hover:bg-accent">
+                          Novo Professor
+                        </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -72,11 +83,15 @@ export function Navbar() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="p-2 w-[180px]">
-                      <NavigationMenuLink href="/cursos" className="block p-2 rounded hover:bg-accent">
-                        Gerenciar Cursos
+                      <NavigationMenuLink asChild>
+                        <Link to="/cursos" className="block p-2 rounded hover:bg-accent">
+                          Gerenciar Cursos
+                        </Link>
                       </NavigationMenuLink>
-                      <NavigationMenuLink href="/cursos/novo" className="block p-2 rounded hover:bg-accent">
-                        Novo Curso
+                      <NavigationMenuLink asChild>
+                        <Link to="/cursos/novo" className="block p-2 rounded hover:bg-accent">
+                          Novo Curso
+                        </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -89,11 +104,15 @@ export function Navbar() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="p-2 w-[180px]">
-                      <NavigationMenuLink href="/matriculas" className="block p-2 rounded hover:bg-accent">
-                        Gerenciar Matrículas
+                      <NavigationMenuLink asChild>
+                        <Link to="/matriculas" className="block p-2 rounded hover:bg-accent">
+                          Gerenciar Matrículas
+                        </Link>
                       </NavigationMenuLink>
-                      <NavigationMenuLink href="/matriculas/nova" className="block p-2 rounded hover:bg-accent">
-                        Nova Matrícula
+                      <NavigationMenuLink asChild>
+                        <Link to="/matriculas/nova" className="block p-2 rounded hover:bg-accent">
+                          Nova Matrícula
+                        </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -125,10 +144,10 @@ export function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t pt-4">
             <div className="space-y-2">
-              <a href="/" className="flex items-center p-3 rounded-md hover:bg-accent transition-colors">
+              <Link to="/" className="flex items-center p-3 rounded-md hover:bg-accent transition-colors">
                 <Home className="mr-3 h-4 w-4" />
                 Início
-              </a>
+              </Link>
               
               <div className="space-y-1">
                 <div className="flex items-center p-3 rounded-md bg-muted/50">
@@ -136,12 +155,12 @@ export function Navbar() {
                   <span className="font-medium">Alunos</span>
                 </div>
                 <div className="ml-6 space-y-1">
-                  <a href="/alunos" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  <Link to="/alunos" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Gerenciar Alunos
-                  </a>
-                  <a href="/alunos/novo" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  </Link>
+                  <Link to="/alunos/novo" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Novo Aluno
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -151,12 +170,12 @@ export function Navbar() {
                   <span className="font-medium">Professores</span>
                 </div>
                 <div className="ml-6 space-y-1">
-                  <a href="/professores" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  <Link to="/professores" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Gerenciar Professores
-                  </a>
-                  <a href="/professores/novo" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  </Link>
+                  <Link to="/professores/novo" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Novo Professor
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -166,12 +185,12 @@ export function Navbar() {
                   <span className="font-medium">Cursos</span>
                 </div>
                 <div className="ml-6 space-y-1">
-                  <a href="/cursos" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  <Link to="/cursos" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Gerenciar Cursos
-                  </a>
-                  <a href="/cursos/novo" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  </Link>
+                  <Link to="/cursos/novo" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Novo Curso
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -181,12 +200,12 @@ export function Navbar() {
                   <span className="font-medium">Matrículas</span>
                 </div>
                 <div className="ml-6 space-y-1">
-                  <a href="/matriculas" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  <Link to="/matriculas" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Gerenciar Matrículas
-                  </a>
-                  <a href="/matriculas/nova" className="block p-2 rounded-md hover:bg-accent transition-colors">
+                  </Link>
+                  <Link to="/matriculas/nova" className="block p-2 rounded-md hover:bg-accent transition-colors">
                     Nova Matrícula
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
