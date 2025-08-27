@@ -3,25 +3,25 @@ import { useNavigate } from "react-router-dom";
 import { CreateAlunoForm } from "./index";
 import { type CreateAlunoFormData } from "../schemas/alunoSchema";
 import { CheckCircle, XCircle } from "lucide-react";
+import { useAlunosService } from "../../../services/alunosService";
 
 const CreateAlunoPage: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const { insertAluno, loading, error, clearError } = useAlunosService();
 
   const handleSubmit = async (data: CreateAlunoFormData) => {
-    setIsLoading(true);
     setShowSuccess(false);
     setShowError(false);
+    clearError();
     
     try {
-      // Aqui você faria a chamada para sua API
-      console.log("Dados do formulário:", data);
+      // Usar o serviço para inserir o aluno
+      const response = await insertAluno(data);
       
-      // Simular chamada da API
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log("Aluno cadastrado com sucesso:", response);
       
       // Sucesso
       setShowSuccess(true);
@@ -31,12 +31,13 @@ const CreateAlunoPage: React.FC = () => {
         navigate(-1);
       }, 2000);
       
-    } catch (error) {
+    } catch (error: any) {
       console.error("Erro ao cadastrar aluno:", error);
-      setErrorMessage("Erro ao cadastrar aluno. Tente novamente.");
+      
+      // Usar mensagem de erro da API ou mensagem padrão
+      const message = error?.message || "Erro ao cadastrar aluno. Tente novamente.";
+      setErrorMessage(message);
       setShowError(true);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -65,7 +66,7 @@ const CreateAlunoPage: React.FC = () => {
 
       <CreateAlunoForm
         onSubmit={handleSubmit}
-        isLoading={isLoading}
+        isLoading={loading}
         onCancel={handleCancel}
       />
     </div>

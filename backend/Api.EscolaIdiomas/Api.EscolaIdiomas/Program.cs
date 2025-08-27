@@ -10,6 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173", "http://localhost:3000", "https://localhost:5173", "https://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
 
 builder.Services.AddSingleton<DatabaseContext>();
 
@@ -32,9 +43,18 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    
+    // Em desenvolvimento, não redirecionar para HTTPS para evitar problemas de CORS
+    // app.UseHttpsRedirection();
+}
+else
+{
+    // Em produção, usar redirecionamento HTTPS
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
+// Usar CORS ANTES do redirecionamento HTTPS
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 

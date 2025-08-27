@@ -19,7 +19,7 @@ export interface ApiError {
 // Configuração da instância do Axios
 const createApiInstance = (): AxiosInstance => {
   const instance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:5213",
     headers: {
       "Content-Type": "application/json",
     },
@@ -83,11 +83,15 @@ export const useApi = () => {
     setError(null);
 
     try {
-      const response: AxiosResponse<ApiResponse<T>> = await api.get(url, config);
-      return response.data;
+      const response: AxiosResponse<T> = await api.get(url, config);
+      // O backend retorna diretamente o objeto, não uma estrutura ApiResponse
+      return {
+        data: response.data,
+        success: true
+      };
     } catch (err: any) {
       const apiError: ApiError = {
-        message: err.response?.data?.message || err.message || "Erro na requisição",
+        message: err.response?.data?.mensagem || err.response?.data?.message || err.message || "Erro na requisição",
         status: err.response?.status || 500,
         errors: err.response?.data?.errors,
       };
@@ -108,11 +112,15 @@ export const useApi = () => {
     setError(null);
 
     try {
-      const response: AxiosResponse<ApiResponse<T>> = await api.post(url, data, config);
-      return response.data;
+      const response: AxiosResponse<T> = await api.post(url, data, config);
+      // O backend retorna diretamente o objeto, não uma estrutura ApiResponse
+      return {
+        data: response.data,
+        success: true
+      };
     } catch (err: any) {
       const apiError: ApiError = {
-        message: err.response?.data?.message || err.message || "Erro na requisição",
+        message: err.response?.data?.mensagem || err.response?.data?.message || err.message || "Erro na requisição",
         status: err.response?.status || 500,
         errors: err.response?.data?.errors,
       };
@@ -133,11 +141,15 @@ export const useApi = () => {
     setError(null);
 
     try {
-      const response: AxiosResponse<ApiResponse<T>> = await api.put(url, data, config);
-      return response.data;
+      const response: AxiosResponse<T> = await api.put(url, data, config);
+      // O backend retorna diretamente o objeto, não uma estrutura ApiResponse
+      return {
+        data: response.data,
+        success: true
+      };
     } catch (err: any) {
       const apiError: ApiError = {
-        message: err.response?.data?.message || err.message || "Erro na requisição",
+        message: err.response?.data?.mensagem || err.response?.data?.message || err.message || "Erro na requisição",
         status: err.response?.status || 500,
         errors: err.response?.data?.errors,
       };
@@ -158,11 +170,15 @@ export const useApi = () => {
     setError(null);
 
     try {
-      const response: AxiosResponse<ApiResponse<T>> = await api.patch(url, data, config);
-      return response.data;
+      const response: AxiosResponse<T> = await api.patch(url, data, config);
+      // O backend retorna diretamente o objeto, não uma estrutura ApiResponse
+      return {
+        data: response.data,
+        success: true
+      };
     } catch (err: any) {
       const apiError: ApiError = {
-        message: err.response?.data?.message || err.message || "Erro na requisição",
+        message: err.response?.data?.mensagem || err.response?.data?.message || err.message || "Erro na requisição",
         status: err.response?.status || 500,
         errors: err.response?.data?.errors,
       };
@@ -182,11 +198,15 @@ export const useApi = () => {
     setError(null);
 
     try {
-      const response: AxiosResponse<ApiResponse<T>> = await api.delete(url, config);
-      return response.data;
+      const response: AxiosResponse<T> = await api.delete(url, config);
+      // O backend retorna diretamente o objeto, não uma estrutura ApiResponse
+      return {
+        data: response.data,
+        success: true
+      };
     } catch (err: any) {
       const apiError: ApiError = {
-        message: err.response?.data?.message || err.message || "Erro na requisição",
+        message: err.response?.data?.mensagem || err.response?.data?.message || err.message || "Erro na requisição",
         status: err.response?.status || 500,
         errors: err.response?.data?.errors,
       };
