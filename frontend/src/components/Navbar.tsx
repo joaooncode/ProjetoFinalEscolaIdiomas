@@ -12,7 +12,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="border-b bg-background">
+    <nav className="border-b bg-background relative z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -23,7 +23,7 @@ export function Navbar() {
 
           {/* Desktop Navigation Menu */}
           <div className="hidden md:block">
-            <NavigationMenu>
+            <NavigationMenu viewport={false}>
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
@@ -39,20 +39,20 @@ export function Navbar() {
                     <Users className="mr-2 h-4 w-4" />
                     Alunos
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="p-2 w-[180px]">
-                      <NavigationMenuLink asChild>
-                        <Link to="/alunos" className="block p-2 rounded hover:bg-accent">
-                          Gerenciar Alunos
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link to="/alunos/novo" className="block p-2 rounded hover:bg-accent">
-                          Novo Aluno
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
+                                     <NavigationMenuContent>
+                     <div className="p-2 w-[200px] bg-popover">
+                       <NavigationMenuLink asChild>
+                         <Link to="/alunos" className="block p-2 rounded hover:bg-accent transition-colors">
+                           Gerenciar Alunos
+                         </Link>
+                       </NavigationMenuLink>
+                       <NavigationMenuLink asChild>
+                         <Link to="/alunos/novo" className="block p-2 rounded hover:bg-accent transition-colors">
+                           Novo Aluno
+                         </Link>
+                       </NavigationMenuLink>
+                     </div>
+                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -60,20 +60,20 @@ export function Navbar() {
                     <GraduationCap className="mr-2 h-4 w-4" />
                     Professores
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="p-2 w-[180px]">
-                      <NavigationMenuLink asChild>
-                        <Link to="/professores" className="block p-2 rounded hover:bg-accent">
-                          Gerenciar Professores
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link to="/professores/novo" className="block p-2 rounded hover:bg-accent">
-                          Novo Professor
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
+                                     <NavigationMenuContent>
+                     <div className="p-2 w-[200px] bg-popover">
+                       <NavigationMenuLink asChild>
+                         <Link to="/professores" className="block p-2 rounded hover:bg-accent transition-colors">
+                           Gerenciar Professores
+                         </Link>
+                       </NavigationMenuLink>
+                       <NavigationMenuLink asChild>
+                         <Link to="/professores/novo" className="block p-2 rounded hover:bg-accent transition-colors">
+                           Novo Professor
+                         </Link>
+                       </NavigationMenuLink>
+                     </div>
+                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -81,20 +81,20 @@ export function Navbar() {
                     <BookOpen className="mr-2 h-4 w-4" />
                     Cursos
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="p-2 w-[180px]">
-                      <NavigationMenuLink asChild>
-                        <Link to="/cursos" className="block p-2 rounded hover:bg-accent">
-                          Gerenciar Cursos
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild>
-                        <Link to="/cursos/novo" className="block p-2 rounded hover:bg-accent">
-                          Novo Curso
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
+                                     <NavigationMenuContent>
+                     <div className="p-2 w-[200px] bg-popover">
+                       <NavigationMenuLink asChild>
+                         <Link to="/cursos" className="block p-2 rounded hover:bg-accent transition-colors">
+                           Gerenciar Cursos
+                         </Link>
+                       </NavigationMenuLink>
+                       <NavigationMenuLink asChild>
+                         <Link to="/cursos/novo" className="block p-2 rounded hover:bg-accent transition-colors">
+                           Novo Curso
+                         </Link>
+                       </NavigationMenuLink>
+                     </div>
+                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>

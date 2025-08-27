@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateAlunoForm } from "./index";
 import { type CreateAlunoFormData } from "../schemas/alunoSchema";
+import { CheckCircle, XCircle } from "lucide-react";
 
 const CreateAlunoPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (data: CreateAlunoFormData) => {
     setIsLoading(true);
+    setShowSuccess(false);
+    setShowError(false);
     
     try {
       // Aqui você faria a chamada para sua API
@@ -18,14 +24,17 @@ const CreateAlunoPage: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       // Sucesso
-      alert("Aluno cadastrado com sucesso!");
+      setShowSuccess(true);
       
-      // Redirecionar para a página anterior ou para a lista de alunos
-      navigate(-1);
+      // Redirecionar após 2 segundos
+      setTimeout(() => {
+        navigate(-1);
+      }, 2000);
       
     } catch (error) {
       console.error("Erro ao cadastrar aluno:", error);
-      alert("Erro ao cadastrar aluno. Tente novamente.");
+      setErrorMessage("Erro ao cadastrar aluno. Tente novamente.");
+      setShowError(true);
     } finally {
       setIsLoading(false);
     }
@@ -37,23 +46,28 @@ const CreateAlunoPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">
-          Cadastrar Novo Aluno
-        </h1>
-        <p className="text-muted-foreground">
-          Preencha os dados abaixo para cadastrar um novo aluno no sistema.
-        </p>
-      </div>
+    <div className="relative">
+      {/* Toast de Sucesso */}
+      {showSuccess && (
+        <div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 animate-in slide-in-from-right duration-300 dark:bg-green-600">
+          <CheckCircle className="w-5 h-5" />
+          <span className="font-medium">Aluno cadastrado com sucesso!</span>
+        </div>
+      )}
 
-      <div className="bg-card border rounded-lg p-6 shadow-sm">
-        <CreateAlunoForm
-          onSubmit={handleSubmit}
-          isLoading={isLoading}
-          onCancel={handleCancel}
-        />
-      </div>
+      {/* Toast de Erro */}
+      {showError && (
+        <div className="fixed top-4 right-4 z-50 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 animate-in slide-in-from-right duration-300 dark:bg-red-600">
+          <XCircle className="w-5 h-5" />
+          <span className="font-medium">{errorMessage}</span>
+        </div>
+      )}
+
+      <CreateAlunoForm
+        onSubmit={handleSubmit}
+        isLoading={isLoading}
+        onCancel={handleCancel}
+      />
     </div>
   );
 };
