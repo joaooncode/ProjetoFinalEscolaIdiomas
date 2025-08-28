@@ -28,7 +28,9 @@ export const useAlunosService = () => {
   const { post, get, put, del, loading, error, clearError } = useApi();
 
   // Função para inserir um novo aluno
-  const insertAluno = async (data: CreateAlunoFormData): Promise<InsertAlunoResponse> => {
+  const insertAluno = async (
+    data: CreateAlunoFormData
+  ): Promise<InsertAlunoResponse> => {
     try {
       // Preparar dados para a API
       const requestData: InsertAlunoRequest = {
@@ -38,21 +40,20 @@ export const useAlunosService = () => {
         email: data.email,
         telefone: data.telefone,
         dataMatricula: new Date().toISOString(), // Data atual como data de matrícula
-        ativo: data.ativo
+        ativo: data.ativo,
       };
 
       console.log("Enviando dados para API:", requestData);
 
       // Fazer chamada para a API usando o composable
       const response = await post<InsertAlunoResponse>("/alunos", requestData);
-      
+
       console.log("Aluno cadastrado com sucesso:", response.data);
-      
+
       return response.data;
-      
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Erro ao cadastrar aluno:", error);
-      
+
       // Re-throw o erro para ser tratado pelo componente
       throw error;
     }
@@ -63,7 +64,7 @@ export const useAlunosService = () => {
     try {
       const response = await get("/alunos");
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Erro ao buscar alunos:", error);
       throw error;
     }
@@ -74,14 +75,17 @@ export const useAlunosService = () => {
     try {
       const response = await get(`/alunos/${id}`);
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`Erro ao buscar aluno com ID ${id}:`, error);
       throw error;
     }
   };
 
   // Função para atualizar aluno
-  const updateAluno = async (id: number, data: Partial<CreateAlunoFormData>) => {
+  const updateAluno = async (
+    id: number,
+    data: Partial<CreateAlunoFormData>
+  ) => {
     try {
       const requestData = {
         ...data,
@@ -90,7 +94,7 @@ export const useAlunosService = () => {
 
       const response = await put(`/alunos/${id}`, requestData);
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`Erro ao atualizar aluno com ID ${id}:`, error);
       throw error;
     }
@@ -101,7 +105,7 @@ export const useAlunosService = () => {
     try {
       const response = await del(`/alunos/${id}`);
       return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`Erro ao deletar aluno com ID ${id}:`, error);
       throw error;
     }
@@ -112,7 +116,7 @@ export const useAlunosService = () => {
     loading,
     error,
     clearError,
-    
+
     // Métodos
     insertAluno,
     getAlunos,
@@ -127,7 +131,9 @@ import { api } from "../composable/api";
 
 export const alunosService = {
   // Função para inserir aluno sem usar hook
-  insertAluno: async (data: CreateAlunoFormData): Promise<InsertAlunoResponse> => {
+  insertAluno: async (
+    data: CreateAlunoFormData
+  ): Promise<InsertAlunoResponse> => {
     const requestData: InsertAlunoRequest = {
       nome: data.nome,
       sobrenome: data.sobrenome,
@@ -135,10 +141,13 @@ export const alunosService = {
       email: data.email,
       telefone: data.telefone,
       dataMatricula: new Date().toISOString(),
-      ativo: data.ativo
+      ativo: data.ativo,
     };
 
-    const response = await api.post<InsertAlunoResponse>("/alunos", requestData);
+    const response = await api.post<InsertAlunoResponse>(
+      "/alunos",
+      requestData
+    );
     return response.data;
   },
 

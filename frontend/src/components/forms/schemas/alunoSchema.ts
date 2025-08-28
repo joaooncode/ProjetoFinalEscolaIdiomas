@@ -9,13 +9,13 @@ export const createAlunoSchema = z.object({
     .min(2, "Nome deve ter pelo menos 2 caracteres")
     .max(100, "Nome deve ter no máximo 100 caracteres")
     .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Nome deve conter apenas letras"),
-  
+
   sobrenome: z
     .string()
     .min(2, "Sobrenome deve ter pelo menos 2 caracteres")
     .max(100, "Sobrenome deve ter no máximo 100 caracteres")
     .regex(/^[a-zA-ZÀ-ÿ\s]+$/, "Sobrenome deve conter apenas letras"),
-  
+
   dataDeNascimento: z
     .date({
       message: "Data de nascimento é obrigatória",
@@ -24,8 +24,11 @@ export const createAlunoSchema = z.object({
       const today = new Date();
       const age = today.getFullYear() - date.getFullYear();
       const monthDiff = today.getMonth() - date.getMonth();
-      
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+
+      if (
+        monthDiff < 0 ||
+        (monthDiff === 0 && today.getDate() < date.getDate())
+      ) {
         return age - 1 >= 3; // Mínimo 3 anos
       }
       return age >= 3;
@@ -34,25 +37,27 @@ export const createAlunoSchema = z.object({
       const today = new Date();
       const age = today.getFullYear() - date.getFullYear();
       const monthDiff = today.getMonth() - date.getMonth();
-      
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+
+      if (
+        monthDiff < 0 ||
+        (monthDiff === 0 && today.getDate() < date.getDate())
+      ) {
         return age - 1 <= 120; // Máximo 120 anos
       }
       return age <= 120;
     }, "Data de nascimento inválida"),
-  
-  email: z
-    .string()
-    .email("Email deve ser válido")
-    .min(5, "Email deve ter pelo menos 5 caracteres")
-    .max(255, "Email deve ter no máximo 255 caracteres"),
-  
+
+  email: z.email("Email deve ser válido"),
+
   telefone: z
     .string()
     .min(10, "Telefone deve ter pelo menos 10 dígitos")
     .max(15, "Telefone deve ter no máximo 15 dígitos")
-    .regex(/^[\d\s\(\)\-\+]+$/, "Telefone deve conter apenas números, espaços, parênteses, hífens e +"),
-  
+    .regex(
+      /^[\d\s()\-+]+$/,
+      "Telefone deve conter apenas números, espaços, parênteses, hífens e +"
+    ),
+
   ativo: z.boolean(),
 });
 
@@ -101,7 +106,9 @@ export const useCreateAlunoForm = () => {
 };
 
 // Hook personalizado para formulário de atualização
-export const useUpdateAlunoForm = (defaultValues?: Partial<UpdateAlunoFormData>) => {
+export const useUpdateAlunoForm = (
+  defaultValues?: Partial<UpdateAlunoFormData>
+) => {
   return useForm<UpdateAlunoFormData>({
     resolver: zodResolver(updateAlunoSchema),
     defaultValues: {
