@@ -1,10 +1,17 @@
-﻿using Api.EscolaIdiomas.Domain.Models.Enums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Api.EscolaIdiomas.Domain.Models.Enums;
 
-namespace Api.EscolaIdiomas.Domain.DTO.Responses.Cursos
+namespace Api.EscolaIdiomas.Domain.DTO.Requests.Cursos
 {
-    public class GetCursoByIdResponse
+    public class InsertCursoRequest
+
     {
         public long Id { get; set; }
+
         public string Nome { get; set; }
 
         public string Descricao { get; set; }

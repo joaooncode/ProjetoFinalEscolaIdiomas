@@ -2,6 +2,7 @@
 using Api.EscolaIdiomas.Domain.DTO.Responses.Professores;
 using Api.EscolaIdiomas.Domain.Interfaces.Professores;
 using Api.EscolaIdiomas.Domain.Models.Professores;
+using System.Linq;
 
 namespace Api.EscolaIdiomas.Domain.Services.Professores
 {
@@ -14,13 +15,24 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
             _professoresRepository = professoresRepository;
         }
 
-        public async Task<GetProfessoresByIdResponse> GetProfessoresById(long id)
+        public async Task DeleteProfessor(long id)
+        {
+            var professor = await _professoresRepository.GetProfessorById(id);
+
+            if (professor == null)
+            {
+                throw new Exception($"Nenhum professor encontrado com id: {id}");
+            }
+
+            await _professoresRepository.DeleteProfessor(id);
+        }
+
+        public async Task<GetProfessoresByIdResponse> GetProfessorById(long id)
         {
             var professor = await _professoresRepository.GetProfessorById(id);
 
             if (professor == null) return null;
 
-            
             return new GetProfessoresByIdResponse()
             {
                 Id = professor.Id,
@@ -30,7 +42,7 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
                 Formacao = professor.Formacao,
                 DataDeNascimento = professor.DataDeNascimento,
                 DataContratacao = professor.DataContratacao,
-                Ativo = professor.Ativo
+                Ativo = professor.Ativo,
             };
         }
 
@@ -44,7 +56,6 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
                 return Enumerable.Empty<GetProfessoresResponse>();
             }
 
-            
             var response = professores.Select(p => new GetProfessoresResponse { Id = p.Id, Nome = p.Nome });
 
             return response;
@@ -54,7 +65,6 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
         {
             try
             {
-                
                 var professor = new Professor()
                 {
                     Nome = request.Nome,
@@ -66,21 +76,42 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
                     Ativo = request.Ativo
                 };
 
-                
-                var novoId = await _professoresRepository.InsertProfessor(professor);
+                var newId = await _professoresRepository.InsertProfessor(professor);
 
-                
-                var response = new InsertProfessoresResponse()
+                var newProfessor = new InsertProfessoresResponse()
                 {
-                    Id = novoId
+                    Id = newId
                 };
 
-                return response;
+                return newProfessor;
             }
             catch (Exception)
             {
-                
                 throw;
+            }
+        }
+
+        public async Task UpdateProfessor(long id, UpdateProfessoresRequest request)
+        {
+            try
+            {
+                var professor = await _professoresRepository.GetProfessorById(id);
+
+                if (professor == null)
+                {
+                    throw new Exception($"Não foi possível encontrar um professor com o id {id}");
+                }
+
+                
+                professor.Email = request.Email;
+                professor.Formacao = request.Formacao;
+                
+
+                await _professoresRepository.UpdateProfessor(professor);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao atualizar professor: {ex.Message}");
             }
         }
     }

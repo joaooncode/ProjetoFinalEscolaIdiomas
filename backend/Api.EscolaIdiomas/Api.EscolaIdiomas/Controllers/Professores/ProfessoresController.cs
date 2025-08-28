@@ -1,7 +1,6 @@
 ﻿using Api.EscolaIdiomas.Domain.DTO.Requests.Professores;
 using Api.EscolaIdiomas.Domain.DTO.Responses.Errors;
 using Api.EscolaIdiomas.Domain.Interfaces.Professores;
-using Api.EscolaIdiomas.Domain.Services.Professores;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.EscolaIdiomas.Controllers.Professores
@@ -17,7 +16,6 @@ namespace Api.EscolaIdiomas.Controllers.Professores
             _professoresService = professoresService;
         }
 
-        
         [HttpGet]
         public async Task<IActionResult> GetProfessores()
         {
@@ -25,11 +23,10 @@ namespace Api.EscolaIdiomas.Controllers.Professores
             return Ok(professoresResponse);
         }
 
-        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProfessorById(long id)
         {
-            var professor = await _professoresService.GetProfessoresById(id);
+            var professor = await _professoresService.GetProfessorById(id);
 
             if (professor == null)
             {
@@ -44,7 +41,6 @@ namespace Api.EscolaIdiomas.Controllers.Professores
             return Ok(professor);
         }
 
-        
         [HttpPost]
         public async Task<IActionResult> InsertProfessor([FromBody] InsertProfessoresRequest request)
         {
@@ -61,6 +57,44 @@ namespace Api.EscolaIdiomas.Controllers.Professores
                     Status = "400"
                 };
                 return BadRequest(response);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProfessor([FromRoute] long id, [FromBody] UpdateProfessoresRequest updateProfessorRequest)
+        {
+            try
+            {
+                await _professoresService.UpdateProfessor(id, updateProfessorRequest);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                var error = new Errors
+                {
+                    Mensagem = ex.Message,
+                    Status = "400",
+                };
+                return BadRequest(error);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProfessor([FromRoute] long id)
+        {
+            try
+            {
+                await _professoresService.DeleteProfessor(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                var error = new Errors
+                {
+                    Mensagem = ex.Message,
+                    Status = "400"
+                };
+                return BadRequest(error);
             }
         }
     }

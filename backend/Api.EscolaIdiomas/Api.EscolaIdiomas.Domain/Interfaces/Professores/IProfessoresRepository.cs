@@ -14,5 +14,7 @@ namespace Api.EscolaIdiomas.Domain.Interfaces.Professores
         Task<Professor> GetProfessorById(long id);
 
         Task<long> InsertProfessor(Professor professor);
+        Task DeleteProfessor(long id);
+        Task UpdateProfessor(Professor professor);
     }
 }

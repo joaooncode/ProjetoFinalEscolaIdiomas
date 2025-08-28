@@ -16,7 +16,6 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
 
         public async Task<Professor> GetProfessorById(long id)
         {
-            
             return await _context.CreateConnection()
                 .QueryFirstOrDefaultAsync<Professor>(@"
                     SELECT id,
@@ -24,8 +23,8 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
                            sobrenome,
                            email,
                            formacao,
-                           data_de_nascimento,
-                           data_contratacao,
+                           data_de_nascimento AS DataDeNascimento,
+                           data_contratacao AS DataContratacao,
                            ativo
                     FROM professores WHERE id = @id
                 ", new { id });
@@ -33,7 +32,6 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
 
         public async Task<IEnumerable<Professor>> GetProfessores()
         {
-            
             return await _context.CreateConnection()
                 .QueryAsync<Professor>(@"SELECT id, nome FROM professores ORDER BY nome");
         }
@@ -62,6 +60,25 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
                           @DataContratacao,
                           @Ativo
                         ) RETURNING id;", professor);
+        }
+
+       
+
+        public async Task UpdateProfessor(Professor professor)
+        {
+            await _context.CreateConnection()
+                .ExecuteAsync(
+                    @"UPDATE professores SET
+                        email = @Email,
+                        formacao = @Formacao,
+                        ativo = @Ativo
+                      WHERE id = @Id", professor);
+        }
+
+        public async Task DeleteProfessor(long id)
+        {
+            await _context.CreateConnection()
+                .ExecuteAsync(@"DELETE FROM professores WHERE id = @Id", new { Id = id });
         }
     }
 }

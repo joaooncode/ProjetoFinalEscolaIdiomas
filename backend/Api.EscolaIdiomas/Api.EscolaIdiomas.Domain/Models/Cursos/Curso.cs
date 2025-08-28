@@ -21,7 +21,7 @@ namespace Api.EscolaIdiomas.Domain.Models.Cursos
 
         public decimal Valor { get; set; }
 
-        public int CargaHorario { get; set; }
+        public int CargaHoraria { get; set; }
 
         public long ProfessorId { get; set; }
         

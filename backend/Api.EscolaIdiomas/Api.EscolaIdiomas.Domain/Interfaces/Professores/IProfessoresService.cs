@@ -5,8 +5,10 @@ namespace Api.EscolaIdiomas.Domain.Interfaces.Professores
 {
     public interface IProfessoresService
     {
-        Task<GetProfessoresByIdResponse> GetProfessoresById(long id);
+        Task<GetProfessoresByIdResponse> GetProfessorById(long id);
         Task<IEnumerable<GetProfessoresResponse>> GetProfessores();
         Task<InsertProfessoresResponse> InsertProfessor(InsertProfessoresRequest request);
+        Task UpdateProfessor(long id, UpdateProfessoresRequest updateProfessorRequest);
+        Task DeleteProfessor(long id);
     }
 }

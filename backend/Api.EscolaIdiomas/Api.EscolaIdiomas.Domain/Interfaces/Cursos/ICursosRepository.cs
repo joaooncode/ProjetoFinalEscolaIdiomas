@@ -5,7 +5,10 @@ namespace Api.EscolaIdiomas.Domain.Interfaces.Cursos
 {
     public interface ICursosRepository
     {
+        Task DeleteCurso(long id);
         Task<Curso> GetCursoById(long id);
         Task<IEnumerable<Curso>> GetCursos();
+        Task<long> InsertCurso(Curso curso);
+        Task UpdateCurso(Curso curso);
     }
 }
