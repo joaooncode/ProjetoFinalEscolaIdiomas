@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CreateProfessorForm } from "../../components/forms/professores";
+import { professorService } from "../../services/professorService";
+import type { CreateProfessorFormData } from "../../components/forms/schemas/professorSchema";
 
 const NovoProfessorPage: React.FC = () => {
-  return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">
-          Cadastrar Novo Professor
-        </h1>
-        <p className="text-muted-foreground">
-          Preencha os dados abaixo para cadastrar um novo professor no sistema.
-        </p>
-      </div>
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
-      <div className="bg-card border rounded-lg p-6 shadow-sm">
-        <div className="flex items-center justify-center h-64 text-muted-foreground">
-          <div className="text-center">
-            <p className="text-lg font-medium mb-2">Formulário de Professor</p>
-            <p>Esta página será implementada em breve.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  const handleSubmit = async (data: CreateProfessorFormData) => {
+    setIsLoading(true);
+    try {
+      await professorService.insertProfessor(data);
+      console.log("Professor cadastrado com sucesso!");
+      navigate("/professores");
+    } catch (error: any) {
+      console.error("Erro ao cadastrar professor:", error);
+      alert(error.message || "Erro ao cadastrar professor");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCancel = () => {
+    navigate("/professores");
+  };
+
+  return (
+    <CreateProfessorForm
+      onSubmit={handleSubmit}
+      isLoading={isLoading}
+      onCancel={handleCancel}
+    />
   );
 };
 
