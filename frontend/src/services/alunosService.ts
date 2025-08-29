@@ -9,10 +9,10 @@ export interface InsertAlunoResponse {
 // Interface para a requisição da API
 export interface InsertAlunoRequest {
   nome: string;
-  sobrenome: string;
+  sobrenome?: string | null;
   dataDeNascimento: string; // ISO date string
-  email: string;
-  telefone: string;
+  email?: string | null;
+  telefone?: string | null;
   dataMatricula: string; // ISO date string
   ativo: boolean;
 }
@@ -43,12 +43,8 @@ export const useAlunosService = () => {
         ativo: data.ativo,
       };
 
-      console.log("Enviando dados para API:", requestData);
-
       // Fazer chamada para a API usando o composable
       const response = await post<InsertAlunoResponse>("/alunos", requestData);
-
-      console.log("Aluno cadastrado com sucesso:", response.data);
 
       return response.data;
     } catch (error: unknown) {

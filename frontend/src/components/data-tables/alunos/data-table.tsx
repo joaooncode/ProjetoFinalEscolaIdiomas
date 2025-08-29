@@ -48,6 +48,13 @@ export function DataTable<TData, TValue>({
             sorting,
             columnFilters,
         },
+        filterFns: {
+            customNameFilter: (row, columnId, filterValue) => {
+                const aluno = row.original as any;
+                const nomeCompleto = `${aluno.nome} ${aluno.sobrenome || ''}`.toLowerCase();
+                return nomeCompleto.includes(filterValue.toLowerCase());
+            },
+        },
     })
 
     return (

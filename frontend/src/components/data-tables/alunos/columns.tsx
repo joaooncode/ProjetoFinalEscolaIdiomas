@@ -1,7 +1,7 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import type { Aluno } from "../../../types/Aluno";
+import type { AlunoResumo } from "../../../types/Aluno";
 import { Button } from "../../ui/button"
-import { ArrowUpDown, Mail, Phone, Calendar, User, CheckCircle, XCircle } from "lucide-react";
+import { ArrowUpDown, User, MoreHorizontal, Copy, Eye, Edit, Mail, Phone, Calendar, CheckCircle, XCircle } from "lucide-react";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,9 +10,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "../../ui/dropdown-menu"
-import { MoreHorizontal, Edit, Eye, Copy } from "lucide-react";
 
-export const columns: ColumnDef<Aluno>[] = [
+export const columns: ColumnDef<AlunoResumo>[] = [
     {
         id: "actions",
         header: "Ações",
@@ -30,7 +29,7 @@ export const columns: ColumnDef<Aluno>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Ações</DropdownMenuLabel>
                         <DropdownMenuItem
-                            onClick={() => navigator.clipboard.writeText(aluno.id)}
+                            onClick={() => navigator.clipboard.writeText(aluno.id.toString())}
                             className="flex items-center gap-2"
                         >
                             <Copy className="w-4 h-4" />
@@ -56,18 +55,20 @@ export const columns: ColumnDef<Aluno>[] = [
             return (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex items-center gap-2">
                     <User className="w-4 h-4" />
-                    Nome
+                    Nome Completo
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                 </Button>
             )
         },
         cell: ({ row }) => {
+            const nomeCompleto = `${row.original.nome} ${row.original.sobrenome || ''}`.trim();
             return (
                 <div className="font-medium text-foreground">
-                    {row.original.nome}
+                    {nomeCompleto}
                 </div>
             )
-        }
+        },
+        filterFn: "customNameFilter" as any,
     },
     {
         accessorKey: "email",
@@ -84,7 +85,7 @@ export const columns: ColumnDef<Aluno>[] = [
             return (
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <Mail className="w-4 h-4 text-muted-foreground" />
-                    {row.original.email}
+                    {row.original.email || 'Não informado'}
                 </div>
             )
         }
@@ -104,13 +105,13 @@ export const columns: ColumnDef<Aluno>[] = [
             return (
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <Phone className="w-4 h-4 text-muted-foreground" />
-                    {row.original.telefone}
+                    {row.original.telefone || 'Não informado'}
                 </div>
             )
         }
     },
     {
-        accessorKey: "dataNascimento",
+        accessorKey: "dataDeNascimento",
         header: ({ column }) => {
             return (
                 <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex items-center gap-2">
@@ -121,12 +122,68 @@ export const columns: ColumnDef<Aluno>[] = [
             )
         },
         cell: ({ row }) => {
+            try {
+                const data = new Date(row.original.dataDeNascimento);
+                if (isNaN(data.getTime())) {
+                    return (
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                            <Calendar className="w-4 h-4 text-muted-foreground" />
+                            Não informado
+                        </div>
+                    );
+                }
+                return (
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                        <Calendar className="w-4 h-4 text-muted-foreground" />
+                        {data.toLocaleDateString('pt-BR')}
+                    </div>
+                );
+            } catch (error) {
+                return (
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                        <Calendar className="w-4 h-4 text-muted-foreground" />
+                        Não informado
+                    </div>
+                );
+            }
+        }
+    },
+    {
+        accessorKey: "dataMatricula",
+        header: ({ column }) => {
             return (
-                <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="w-4 h-4 text-muted-foreground" />
-                    {row.original.dataNascimento.toLocaleDateString('pt-BR')}
-                </div>
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    Data de Matrícula
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
             )
+        },
+        cell: ({ row }) => {
+            try {
+                const data = new Date(row.original.dataMatricula);
+                if (isNaN(data.getTime())) {
+                    return (
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                            <Calendar className="w-4 h-4 text-muted-foreground" />
+                            Não informado
+                        </div>
+                    );
+                }
+                return (
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                        <Calendar className="w-4 h-4 text-muted-foreground" />
+                        {data.toLocaleDateString('pt-BR')}
+                    </div>
+                );
+            } catch (error) {
+                return (
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                        <Calendar className="w-4 h-4 text-muted-foreground" />
+                        Não informado
+                    </div>
+                );
+            }
         }
     },
     {

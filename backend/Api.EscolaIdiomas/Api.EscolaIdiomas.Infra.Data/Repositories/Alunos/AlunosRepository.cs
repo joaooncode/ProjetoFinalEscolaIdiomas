@@ -40,7 +40,17 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Alunos
         public async Task<IEnumerable<Aluno>> GetAlunos()
         {
             return await _context.CreateConnection()
-                .QueryAsync<Aluno>(@"SELECT id, nome FROM alunos ORDER BY nome");
+                .QueryAsync<Aluno>(@"
+                    SELECT id,
+                           nome,
+                           sobrenome,
+                           data_de_nascimento AS DataDeNascimento,
+                           email,
+                           telefone,
+                           data_matricula AS DataMatricula,
+                           ativo
+                    FROM alunos 
+                    ORDER BY nome");
         }
 
         public async Task<long> InsertAluno(Aluno aluno)

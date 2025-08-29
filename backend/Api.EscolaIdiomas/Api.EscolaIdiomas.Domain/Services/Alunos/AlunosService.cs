@@ -57,7 +57,17 @@ namespace Api.EscolaIdiomas.Domain.Services.Alunos
                 throw new Exception($"Nenhum aluno encontrado!");
             }
 
-            var response = alunos.Select(a => new GetAlunosResponse { Id = a.Id, Nome = a.Nome });
+            var response = alunos.Select(a => new GetAlunosResponse 
+            { 
+                Id = a.Id, 
+                Nome = a.Nome,
+                Sobrenome = a.Sobrenome,
+                Email = a.Email,
+                Telefone = a.Telefone,
+                DataDeNascimento = a.DataDeNascimento,
+                DataMatricula = a.DataMatricula,
+                Ativo = a.Ativo
+            });
 
             return response;
         }
@@ -74,11 +84,10 @@ namespace Api.EscolaIdiomas.Domain.Services.Alunos
                     Email = request.Email,
                     Telefone = request.Telefone,
                     Ativo = request.Ativo,
-                    DataMatricula = request.DataMatricula
+                    DataMatricula = request.DataMatricula ?? DateTime.Now // Usar data atual se não fornecida
                 };
 
                 var response = await _alunosRepository.InsertAluno(aluno);
-
 
                 var newAluno = new InsertAlunoResponse()
                 {
@@ -89,7 +98,6 @@ namespace Api.EscolaIdiomas.Domain.Services.Alunos
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
