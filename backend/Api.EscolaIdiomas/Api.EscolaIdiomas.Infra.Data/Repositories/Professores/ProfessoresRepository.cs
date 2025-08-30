@@ -46,6 +46,7 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
                           sobrenome,
                           email,
                           formacao,
+                          telefone,
                           data_de_nascimento,
                           data_contratacao,
                           ativo
@@ -55,14 +56,25 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
                           @Nome,
                           @Sobrenome,
                           @Email,
-                          @Formacao,
+                          @Formacao::formacao_enum,
+                          @Telefone,
                           @DataDeNascimento,
                           @DataContratacao,
                           @Ativo
-                        ) RETURNING id;", professor);
+                        ) RETURNING id;", new
+                    {
+                        professor.Nome,
+                        professor.Sobrenome,
+                        professor.Email,
+                        Formacao = professor.Formacao.ToString(), // Converter enum para string
+                        professor.Telefone,
+                        professor.DataDeNascimento,
+                        professor.DataContratacao,
+                        professor.Ativo
+                    });
         }
 
-       
+
 
         public async Task UpdateProfessor(Professor professor)
         {
@@ -70,9 +82,14 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
                 .ExecuteAsync(
                     @"UPDATE professores SET
                         email = @Email,
-                        formacao = @Formacao,
+                        formacao = @Formacao::formacao_enum,
                         ativo = @Ativo
-                      WHERE id = @Id", professor);
+                      WHERE id = @Id", new
+                    {
+                        professor.Email,
+                        Formacao = professor.Formacao.ToString(), // Converter enum para string
+                        professor.Ativo
+                    });
         }
 
         public async Task DeleteProfessor(long id)

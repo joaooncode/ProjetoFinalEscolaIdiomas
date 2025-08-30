@@ -1,6 +1,7 @@
 ﻿using Api.EscolaIdiomas.Domain.DTO.Requests.Professores;
 using Api.EscolaIdiomas.Domain.DTO.Responses.Professores;
 using Api.EscolaIdiomas.Domain.Interfaces.Professores;
+using Api.EscolaIdiomas.Domain.Models.Enums;
 using Api.EscolaIdiomas.Domain.Models.Professores;
 using System.Linq;
 
@@ -9,6 +10,20 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
     public class ProfessoresService : IProfessoresService
     {
         private readonly IProfessoresRepository _professoresRepository;
+
+        private Formacoes MapFormacaoStringEnum(string formacaoString)
+        {
+            return formacaoString switch
+            {
+                "Ensino Médio" => Formacoes.EnsinoMedio,
+                "Ensino Técnico" => Formacoes.EnsinoTecnico,
+                "Graduado" => Formacoes.Graduado,
+                "Pós-Graduado" => Formacoes.PosGraduado,
+                "Mestrado" => Formacoes.Mestrado,
+                "Doutorado" => Formacoes.Doutorado,
+                _ => throw new ArgumentException($"Formação inválida: {formacaoString}")
+            };
+        }
 
         public ProfessoresService(IProfessoresRepository professoresRepository)
         {
@@ -70,7 +85,8 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
                     Nome = request.Nome,
                     Sobrenome = request.Sobrenome,
                     Email = request.Email,
-                    Formacao = request.Formacao,
+                    Formacao = MapFormacaoStringEnum(request.Formacao),
+                    Telefone = request.Telefone,
                     DataDeNascimento = request.DataDeNascimento,
                     DataContratacao = request.DataContratacao,
                     Ativo = request.Ativo

@@ -19,6 +19,8 @@ namespace Api.EscolaIdiomas.Domain.Models.Professores
 
         public Formacoes Formacao { get; set; }
 
+        public string Telefone { get; set; }
+
         public DateTime DataDeNascimento { get; set; }
 
         public DateTime DataContratacao { get; set; }

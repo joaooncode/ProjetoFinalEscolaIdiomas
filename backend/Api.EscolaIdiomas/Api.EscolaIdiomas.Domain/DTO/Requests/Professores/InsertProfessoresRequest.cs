@@ -9,7 +9,7 @@ namespace Api.EscolaIdiomas.Domain.DTO.Requests.Professores
 {
     public class InsertProfessoresRequest
     {
-        public long Id { get; set; }
+        //public long Id { get; set; }
 
         public string Nome { get; set; }
 
@@ -17,7 +17,9 @@ namespace Api.EscolaIdiomas.Domain.DTO.Requests.Professores
 
         public string Email { get; set; }
 
-        public Formacoes Formacao { get; set; }
+        public string Formacao { get; set; }
+
+        public string Telefone { get; set; }
 
         public DateTime DataDeNascimento { get; set; }
 
