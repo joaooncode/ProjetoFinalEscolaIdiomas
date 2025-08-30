@@ -309,7 +309,31 @@ export const CreateProfessorForm: React.FC<CreateProfessorFormProps> = ({
                         </FormItem>
                       )}
                     />
+                    {/* Telefone */}
+                    <FormField
+                      control={form.control}
+                      name="telefone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="flex items-center gap-2 text-sm font-medium text-foreground">
+                            <Phone className="w-4 h-4" />
+                            Telefone *
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              type="tel"
+                              placeholder="(11) 99999-9999"
+                              {...field}
+                              disabled={isLoading}
+                              className="h-12 border-input focus:border-ring focus:ring-ring transition-colors"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-destructive text-sm" />
+                        </FormItem>
+                      )}
+                    />
                   </div>
+
                 </div>
 
                 {/* Botões de Ação */}

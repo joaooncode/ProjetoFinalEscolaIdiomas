@@ -23,6 +23,8 @@ export const createProfessorSchema = z.object({
     message: "Formação inválida",
   }),
 
+  telefone: z.string().min(10, "Telefone deve ter pelo menos 10 dígitos"),
+
   dataDeNascimento: z.date({
     message: "Data de nascimento é obrigatória",
   }),
@@ -73,6 +75,7 @@ export const useCreateProfessorForm = () => {
       nome: "",
       sobrenome: "",
       email: "",
+      telefone: "",
       formacao: Formacoes.EnsinoMedio,
       dataDeNascimento: undefined,
       dataContratacao: undefined,
@@ -91,6 +94,7 @@ export const useUpdateProfessorForm = (
       nome: "",
       sobrenome: "",
       email: "",
+      telefone: "",
       formacao: Formacoes.EnsinoMedio,
       dataDeNascimento: undefined,
       dataContratacao: undefined,

@@ -9,6 +9,7 @@ export interface InsertProfessorRequest {
     nome: string;
     sobrenome: string;
     email: string;
+    telefone: string;
     formacao: string;
     dataDeNascimento: string;
     dataContratacao: string;
@@ -32,6 +33,7 @@ export const useProfessorService = () => {
                 nome: data.nome,
                 sobrenome: data.sobrenome,
                 email: data.email,
+                telefone: data.telefone,
                 formacao: data.formacao,
                 dataDeNascimento: data.dataDeNascimento.toISOString(),
                 dataContratacao: data.dataContratacao.toISOString(),
@@ -124,6 +126,7 @@ export const professorService = {
             nome: data.nome,
             sobrenome: data.sobrenome,
             email: data.email,
+            telefone: data.telefone,
             formacao: data.formacao,
             dataDeNascimento: data.dataDeNascimento.toISOString(),
             dataContratacao: data.dataContratacao.toISOString(),
@@ -151,6 +154,7 @@ export const professorService = {
         const requestData = {
             ...data,
             dataDeNascimento: data.dataDeNascimento?.toISOString(),
+            telefone: data.telefone,
             dataContratacao: data.dataContratacao?.toISOString(),
         }
 

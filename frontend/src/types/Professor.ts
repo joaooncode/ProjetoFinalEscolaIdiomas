@@ -5,6 +5,7 @@ export type Professor = {
   nome: string;
   sobrenome: string;
   email: string;
+  telefone: string;
   formacao: Formacoes;
   dataDeNascimento: Date;
   dataContratacao: Date;

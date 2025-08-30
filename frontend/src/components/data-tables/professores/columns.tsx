@@ -188,6 +188,26 @@ export const columns: ColumnDef<Professor>[] = [
         filterFn: "customDateFilter" as any,
     },
     {
+        accessorKey: "telefone",
+        header: ({ column }) => {
+            return (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")} className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    Telefone
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        },
+        cell: ({ row }) => {
+            return (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <Phone className="w-4 h-4 text-muted-foreground" />
+                    {row.original.telefone}
+                </div>
+            )
+        }
+    },
+    {
         accessorKey: "ativo",
         header: ({ column }) => {
             return (
