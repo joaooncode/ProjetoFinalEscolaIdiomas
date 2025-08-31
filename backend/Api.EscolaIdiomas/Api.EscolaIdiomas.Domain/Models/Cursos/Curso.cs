@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Api.EscolaIdiomas.Domain.Models.Enums;
+
 
 namespace Api.EscolaIdiomas.Domain.Models.Cursos
 {
@@ -17,13 +17,17 @@ namespace Api.EscolaIdiomas.Domain.Models.Cursos
 
         public DateTime DataCriacao { get; set; }
 
-        public Categorias Categoria { get; set; }
+        public string Categoria { get; set; }
 
         public decimal Valor { get; set; }
 
         public int CargaHoraria { get; set; }
 
         public long ProfessorId { get; set; }
+        
+        public string NomeProfessor { get; set; }
+        
+        public string SobrenomeProfessor { get; set; }
         
         public bool Ativo {  get; set; }
     }

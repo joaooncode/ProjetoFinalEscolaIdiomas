@@ -71,7 +71,18 @@ namespace Api.EscolaIdiomas.Domain.Services.Professores
                 return Enumerable.Empty<GetProfessoresResponse>();
             }
 
-            var response = professores.Select(p => new GetProfessoresResponse { Id = p.Id, Nome = p.Nome });
+            var response = professores.Select(p => new GetProfessoresResponse 
+            { 
+                Id = p.Id,
+                Nome = p.Nome,
+                Sobrenome = p.Sobrenome,
+                Email = p.Email,
+                Telefone = p.Telefone,
+                Formacao = p.Formacao.ToString(),
+                DataDeNascimento = p.DataDeNascimento,
+                DataContratacao = p.DataContratacao,
+                Ativo = p.Ativo
+            });
 
             return response;
         }

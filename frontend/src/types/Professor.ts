@@ -7,7 +7,7 @@ export type Professor = {
   email: string;
   telefone: string;
   formacao: Formacoes;
-  dataDeNascimento: Date;
-  dataContratacao: Date;
+  dataDeNascimento?: string;
+  dataContratacao?: string;
   ativo: boolean;
 };

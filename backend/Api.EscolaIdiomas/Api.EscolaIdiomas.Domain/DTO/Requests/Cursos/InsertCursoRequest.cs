@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Api.EscolaIdiomas.Domain.Models.Enums;
+
 
 namespace Api.EscolaIdiomas.Domain.DTO.Requests.Cursos
 {
     public class InsertCursoRequest
-
     {
-        public long Id { get; set; }
-
         public string Nome { get; set; }
 
         public string Descricao { get; set; }
 
         public DateTime DataCriacao { get; set; }
 
-        public Categorias Categoria { get; set; }
+        public string Categoria { get; set; }
 
         public decimal Valor { get; set; }
 

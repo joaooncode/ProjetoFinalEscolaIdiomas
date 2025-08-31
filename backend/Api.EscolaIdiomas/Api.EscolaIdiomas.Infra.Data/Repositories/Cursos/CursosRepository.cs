@@ -19,19 +19,40 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Cursos
           
             return await _context.CreateConnection().QueryFirstOrDefaultAsync<Curso>(
                 @"SELECT 
-                    id,
-                    nome,
-                    descricao,
-                    carga_horaria AS CargaHoraria,
-                    valor,
-                    ativo
-                  FROM cursos WHERE id = @id", new { id });
+                    c.id,
+                    c.nome,
+                    c.descricao,
+                    c.data_criacao AS DataCriacao,
+                    c.carga_horaria AS CargaHoraria,
+                    c.valor,
+                    c.ativo,
+                    c.categoria AS Categoria,
+                    c.professor_id AS ProfessorId,
+                    p.nome AS NomeProfessor,
+                    p.sobrenome AS SobrenomeProfessor
+                  FROM cursos c
+                  LEFT JOIN professores p ON c.professor_id = p.id
+                  WHERE c.id = @id", new { id });
         }
 
         public async Task<IEnumerable<Curso>> GetCursos()
         {
             return await _context.CreateConnection().QueryAsync<Curso>(
-                @"SELECT id, nome FROM cursos ORDER BY nome"
+                @"SELECT 
+                    c.id,
+                    c.nome,
+                    c.descricao,
+                    c.data_criacao AS DataCriacao,
+                    c.carga_horaria AS CargaHoraria,
+                    c.valor,
+                    c.ativo,
+                    c.categoria AS Categoria,
+                    c.professor_id AS ProfessorId,
+                    p.nome AS NomeProfessor,
+                    p.sobrenome AS SobrenomeProfessor
+                  FROM cursos c
+                  LEFT JOIN professores p ON c.professor_id = p.id
+                  ORDER BY c.nome"
             );
         }
 
@@ -41,10 +62,18 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Cursos
         {
             
             return await _context.CreateConnection().QuerySingleAsync<long>(
-                @"INSERT INTO cursos (nome, descricao, carga_horaria, valor, ativo)
-                  VALUES (@Nome, @Descricao, @CargaHoraria, @Valor, @Ativo)
-                  RETURNING id;",
-                curso
+                @"INSERT INTO cursos (nome, descricao, carga_horaria, data_criacao, valor, categoria, ativo, professor_id)
+                  VALUES (@Nome, @Descricao, @CargaHoraria, @DataCriacao, @Valor, @Categoria::categoria_enum, @Ativo, @ProfessorId)
+                  RETURNING id;", new { 
+                    curso.Nome, 
+                    curso.Descricao, 
+                    curso.CargaHoraria, 
+                    curso.DataCriacao, 
+                    curso.Valor, 
+                    curso.Categoria,
+                    curso.Ativo,
+                    curso.ProfessorId
+                }
             );
         }
 
@@ -55,10 +84,24 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Cursos
                     nome = @Nome,
                     descricao = @Descricao,
                     carga_horaria = @CargaHoraria,
+                    data_criacao = @DataCriacao,
                     valor = @Valor,
+                    categoria = @Categoria::categoria_enum,
+                    professor_id = @ProfessorId,
                     ativo = @Ativo
                   WHERE id = @Id;",
-                curso
+                new
+                {
+                    curso.Id,
+                    curso.Nome,
+                    curso.Descricao,
+                    curso.CargaHoraria,
+                    curso.DataCriacao,
+                    curso.Valor,
+                    curso.Categoria,
+                    curso.ProfessorId,
+                    curso.Ativo
+                }
             );
         }
 

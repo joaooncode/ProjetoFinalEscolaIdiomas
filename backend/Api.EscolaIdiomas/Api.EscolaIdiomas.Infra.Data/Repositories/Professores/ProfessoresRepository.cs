@@ -22,6 +22,7 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
                            nome,
                            sobrenome,
                            email,
+                           telefone,
                            formacao,
                            data_de_nascimento AS DataDeNascimento,
                            data_contratacao AS DataContratacao,
@@ -33,7 +34,7 @@ namespace Api.EscolaIdiomas.Infra.Data.Repositories.Professores
         public async Task<IEnumerable<Professor>> GetProfessores()
         {
             return await _context.CreateConnection()
-                .QueryAsync<Professor>(@"SELECT id, nome FROM professores ORDER BY nome");
+                .QueryAsync<Professor>(@"SELECT id, nome, sobrenome, email, formacao, telefone, data_de_nascimento AS DataDeNascimento, data_contratacao AS DataContratacao, ativo FROM professores ORDER BY nome");
         }
 
         public async Task<long> InsertProfessor(Professor professor)

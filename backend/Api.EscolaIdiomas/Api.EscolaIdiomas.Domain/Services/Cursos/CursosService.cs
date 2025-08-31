@@ -4,11 +4,38 @@ using Api.EscolaIdiomas.Domain.Interfaces.Cursos;
 using Api.EscolaIdiomas.Domain.Models.Cursos;
 using System.Linq;
 
+
 namespace Api.EscolaIdiomas.Domain.Services.Cursos
 {
     public class CursosService : ICursosService
     {
         private readonly ICursosRepository _cursosRepository;
+
+        private string MapCategoriaToDatabase(string categoria)
+        {
+            return categoria switch
+            {
+                "Básico" => "Basico",
+                "Médio" => "Medio", 
+                "Avançado" => "Avancado",
+                "Basico" => "Basico",
+                "Medio" => "Medio",
+                "Avancado" => "Avancado",
+                _ => throw new ArgumentException($"Categoria inválida: {categoria}")
+            };
+        }
+
+        private string MapCategoriaFromDatabase(string categoria)
+        {
+            return categoria switch
+            {
+                "Basico" => "Básico",
+                "Medio" => "Médio",
+                "Avancado" => "Avançado",
+                _ => categoria // Retorna o valor original se não encontrar mapeamento
+            };
+        }
+        
 
         public CursosService(ICursosRepository cursosRepository)
         {
@@ -33,6 +60,11 @@ namespace Api.EscolaIdiomas.Domain.Services.Cursos
                 Descricao = curso.Descricao,
                 CargaHoraria = curso.CargaHoraria,
                 Valor = curso.Valor,
+                Categoria = MapCategoriaFromDatabase(curso.Categoria),
+                DataCriacao = curso.DataCriacao,
+                ProfessorId = curso.ProfessorId,
+                NomeProfessor = curso.NomeProfessor,
+                SobrenomeProfessor = curso.SobrenomeProfessor,
                 Ativo = curso.Ativo
             };
         }
@@ -48,7 +80,20 @@ namespace Api.EscolaIdiomas.Domain.Services.Cursos
             }
 
             
-            var response = cursos.Select(c => new GetCursosResponse { Id = c.Id, Nome = c.Nome });
+            var response = cursos.Select(c => new GetCursosResponse 
+            { 
+                Id = c.Id, 
+                Nome = c.Nome,
+                Descricao = c.Descricao,
+                DataCriacao = c.DataCriacao,
+                Categoria = MapCategoriaFromDatabase(c.Categoria),
+                Valor = c.Valor,
+                CargaHoraria = c.CargaHoraria,
+                ProfessorId = c.ProfessorId,
+                NomeProfessor = c.NomeProfessor,
+                SobrenomeProfessor = c.SobrenomeProfessor,
+                Ativo = c.Ativo
+            });
 
             return response;
         }
@@ -63,8 +108,12 @@ namespace Api.EscolaIdiomas.Domain.Services.Cursos
                 Descricao = request.Descricao,
                 CargaHoraria = request.CargaHoraria,
                 Valor = request.Valor,
-                Ativo = request.Ativo
+                Ativo = request.Ativo,
+                Categoria = MapCategoriaToDatabase(request.Categoria),
+                ProfessorId = request.ProfessorId,
+                DataCriacao = request.DataCriacao
             };
+
 
             var newId = await _cursosRepository.InsertCurso(curso);
 
@@ -86,6 +135,8 @@ namespace Api.EscolaIdiomas.Domain.Services.Cursos
             curso.CargaHoraria = request.CargaHoraria;
             curso.Valor = request.Valor;
             curso.Ativo = request.Ativo;
+            curso.Categoria = MapCategoriaToDatabase(request.Categoria);
+            curso.ProfessorId = request.ProfessorId;
 
             await _cursosRepository.UpdateCurso(curso);
         }
