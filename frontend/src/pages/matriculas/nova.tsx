@@ -1,26 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CreateMatriculaForm } from "../../components/forms/matriculas/MatriculaForm";
+import { useMatriculaService } from "../../services/matriculaService";
+import type { CreateMatriculaFormData } from "../../components/forms/schemas/matriculaSchema";
+import { toast } from "sonner";
 
 const NovaMatriculaPage: React.FC = () => {
-  return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">
-          Nova Matrícula
-        </h1>
-        <p className="text-muted-foreground">
-          Preencha os dados abaixo para criar uma nova matrícula no sistema.
-        </p>
-      </div>
+  const navigate = useNavigate();
+  const { insertMatricula, loading, error } = useMatriculaService();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-      <div className="bg-card border rounded-lg p-6 shadow-sm">
-        <div className="flex items-center justify-center h-64 text-muted-foreground">
-          <div className="text-center">
-            <p className="text-lg font-medium mb-2">Formulário de Matrícula</p>
-            <p>Esta página será implementada em breve.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  const handleSubmit = async (data: CreateMatriculaFormData) => {
+    try {
+      setIsSubmitting(true);
+      await insertMatricula(data);
+      
+      toast.success("Matrícula criada com sucesso!", {
+        description: "O aluno foi matriculado no curso selecionado.",
+      });
+      
+      // Redirecionar para a lista de matrículas
+      navigate("/matriculas");
+    } catch (error) {
+      console.error("Erro ao criar matrícula:", error);
+      
+      toast.error("Erro ao criar matrícula", {
+        description: "Ocorreu um erro ao tentar criar a matrícula. Tente novamente.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleCancel = () => {
+    navigate("/matriculas");
+  };
+
+  return (
+    <CreateMatriculaForm
+      onSubmit={handleSubmit}
+      isLoading={isSubmitting}
+      onCancel={handleCancel}
+    />
   );
 };
 
