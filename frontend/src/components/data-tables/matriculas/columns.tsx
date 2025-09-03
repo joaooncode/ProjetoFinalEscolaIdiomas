@@ -68,34 +68,33 @@ export const columns: ColumnDef<MatriculaResumo>[] = [
     },
   },
   {
-    accessorKey: "AlunoNome",
+    accessorKey: "alunoNome",
     header: "Aluno",
     cell: ({ row }) => {
-      const alunoNome = row.getValue("AlunoNome") as string;
-      const alunoSobrenome = row.getValue("AlunoSobrenome") as string;
-      const nomeCompleto = `${alunoNome} ${alunoSobrenome}`.trim();
+      const matricula = row.original;
+      const nomeCompleto = `${matricula.alunoNome} ${matricula.alunoSobrenome}`.trim();
       
       return (
         <div className="flex flex-col">
           <span className="font-medium text-foreground">{nomeCompleto}</span>
           <span className="text-xs text-muted-foreground">
-            ID: {row.getValue("alunoId")}
+            ID: {matricula.alunoId}
           </span>
         </div>
       );
     },
   },
   {
-    accessorKey: "CursoNome",
+    accessorKey: "cursoNome",
     header: "Curso",
     cell: ({ row }) => {
-      const cursoNome = row.getValue("CursoNome") as string;
+      const matricula = row.original;
       
       return (
         <div className="flex flex-col">
-          <span className="font-medium text-foreground">{cursoNome}</span>
+          <span className="font-medium text-foreground">{matricula.cursoNome}</span>
           <span className="text-xs text-muted-foreground">
-            ID: {row.getValue("CursoId")}
+            ID: {matricula.cursoId}
           </span>
         </div>
       );
